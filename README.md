@@ -18,10 +18,21 @@ A full-stack URL Shortener application that converts long URLs into short, share
 - **Database:** MongoDB
 - **Frontend:** HTML, CSS, JavaScript
 - **Tools:** Thunder Client, Git, VS Code
+- **Deployment:** Vercel (Frontend), Render (Backend) 
 
 ---
+## Live Demo
 
-##  Installation
+Frontend:
+https://url-shortener-x7p7.vercel.app
+
+Backend API:
+https://url-shortener-51sw.onrender.com
+
+##  SCREENSHOTS
+<img width="1416" height="922" alt="image" src="https://github.com/user-attachments/assets/6d0b4c80-6e58-4f23-a0b1-b3e551732373" />
+
+<img width="1322" height="922" alt="image" src="https://github.com/user-attachments/assets/e9181f5b-7b06-4e6f-b2b0-16ab78735905" />
 
 ### Clone the repository
 ```bash
