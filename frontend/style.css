@@ -1,98 +1,91 @@
-/* Import modern font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  margin: 0;
   height: 100vh;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #5f9cff, #8e5bd9);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Card container */
+/* Main container */
 .container {
   background: white;
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  text-align: center;
-  width: 420px;
-  animation: fadeIn 0.6s ease;
+  padding: 30px 35px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  width: 600px;
 }
 
 /* Heading */
 h1 {
+  text-align: center;
   margin-bottom: 20px;
   color: #333;
-  font-weight: 600;
 }
 
-/* Input field */
+/* Horizontal row */
+.input-row {
+  display: flex;
+  gap: 10px;
+}
+
+/* Input box */
 input {
-  width: 100%;
-  padding: 12px 14px;
-  margin-bottom: 15px;
+  flex: 1;
+  padding: 10px 14px;
   border-radius: 8px;
-  border: 1px solid #ddd;
-  font-size: 15px;
+  border: 2px solid #5f9cff;
+  background-color: #f0f6ff;
+  font-size: 14px;
   transition: 0.3s;
 }
 
 input:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 8px rgba(102, 126, 234, 0.3);
+  border-color: #8e5bd9;
+  background-color: #eef2ff;
 }
 
 /* Button */
 button {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  border: none;
-  padding: 12px 20px;
+  padding: 10px 18px;
   border-radius: 8px;
-  font-size: 15px;
+  border: none;
+  background: linear-gradient(135deg, #5f9cff, #8e5bd9);
+  color: white;
+  font-weight: 500;
   cursor: pointer;
   transition: 0.3s;
-  font-weight: 500;
 }
 
 button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-/* Result link */
-#result {
-  margin-top: 20px;
-  font-size: 15px;
+/* Output box */
+.output-box {
+  margin-top: 18px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f5f7ff;
+  border: 1px solid #d6dcff;
+  text-align: center;
 }
 
-#result a {
-  color: #667eea;
+.output-box a {
+  color: #5f9cff;
   text-decoration: none;
   font-weight: 500;
 }
 
-#result a:hover {
+.output-box a:hover {
   text-decoration: underline;
-}
-
-/* Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
