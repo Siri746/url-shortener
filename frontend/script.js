@@ -1,4 +1,4 @@
-const API_URL = "https://your-backend-url.onrender.com/api/url/shorten";
+const API_URL = "https://url-shortener-51sw.onrender.com/api/url/shorten";
 
 async function shortenUrl() {
   const longUrl = document.getElementById("longUrl").value;
