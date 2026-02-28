@@ -1,18 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>URL Shortener</title>
+
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
 <body>
+
   <div class="container">
 
     <h1>URL Shortener</h1>
 
+    <!-- Horizontal input row -->
     <div class="input-row">
-      <input type="text" id="urlInput" placeholder="Paste your long URL here">
-      <button onclick="shortenUrl()">Shorten</button>
+
+      <input
+        type="text"
+        id="urlInput"
+        placeholder="Enter your long URL here">
+
+      <button onclick="shortenUrl()">
+        Shorten
+      </button>
+
     </div>
 
+    <!-- Output box -->
     <div class="output-box">
-      <p id="result">Your shortened URL will appear here</p>
+
+      <p id="result">
+        Your shortened URL will appear here
+      </p>
+
     </div>
 
   </div>
 
+  <!-- JS -->
   <script src="script.js"></script>
+
 </body>
+
+</html>
