@@ -4,21 +4,31 @@ require("dotenv").config();
 
 const connectDB = require("./config/db");
 const urlRoutes = require("./routes/urlRoutes");
+const Url = require("./models/Url");
 
 const app = express();
 
-// VERY IMPORTANT
-app.use(cors({
-  origin: "*",
-  methods: ["GET", "POST"],
-  allowedHeaders: ["Content-Type"]
-}));
-
+app.use(cors());
 app.use(express.json());
 
 connectDB();
 
 app.use("/api/url", urlRoutes);
+
+// redirect route
+app.get("/:code", async (req, res) => {
+  try {
+    const url = await Url.findOne({ shortCode: req.params.code });
+
+    if (url) {
+      return res.redirect(url.longUrl);
+    } else {
+      return res.status(404).send("URL not found");
+    }
+  } catch (error) {
+    res.status(500).send("Server error");
+  }
+});
 
 app.get("/", (req, res) => {
   res.send("URL Shortener API Running");
