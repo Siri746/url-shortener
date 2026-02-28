@@ -1,7 +1,7 @@
 const API_URL = "https://url-shortener-51sw.onrender.com/api/url/shorten";
 
 async function shortenUrl() {
-  const longUrl = document.getElementById("longUrl").value;
+  const longUrl = document.getElementById("urlInput").value;
 
   const response = await fetch(API_URL, {
     method: "POST",
