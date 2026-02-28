@@ -1,13 +1,18 @@
-async function shortenUrl() {
-  const url = document.getElementById("urlInput").value;
+const API_URL = "https://your-backend-url.onrender.com/api/url/shorten";
 
-  const res = await fetch("http://localhost:5000/shorten", {
+async function shortenUrl() {
+  const longUrl = document.getElementById("longUrl").value;
+
+  const response = await fetch(API_URL, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ originalUrl: url })
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ longUrl }),
   });
 
-  const data = await res.json();
+  const data = await response.json();
+
   document.getElementById("result").innerHTML =
     `<a href="${data.shortUrl}" target="_blank">${data.shortUrl}</a>`;
 }

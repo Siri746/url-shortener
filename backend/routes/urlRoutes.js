@@ -1,33 +1,39 @@
 const express = require("express");
-const shortid = require("shortid");
-const Url = require("../models/Url");
-
 const router = express.Router();
+const Url = require("../models/Url");
+const shortid = require("shortid");
 
 router.post("/shorten", async (req, res) => {
+  const { longUrl } = req.body;
+
   try {
-    const { longUrl } = req.body;
-
-    if (!longUrl) {
-      return res.status(400).json("Long URL is required");
-    }
-
     const shortCode = shortid.generate();
 
-    const url = new Url({
+    const newUrl = new Url({
       longUrl,
       shortCode,
     });
 
-    await url.save();
+    await newUrl.save();
 
-    res.status(201).json({
-      longUrl,
-      shortCode,
-      shortUrl: `http://localhost:5000/${shortCode}`,
+    res.json({
+      shortUrl: `${req.protocol}://${req.get("host")}/${shortCode}`,
     });
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    res.status(500).json("Server Error");
+  }
+});
+
+router.get("/:code", async (req, res) => {
+  try {
+    const url = await Url.findOne({ shortCode: req.params.code });
+
+    if (url) {
+      return res.redirect(url.longUrl);
+    } else {
+      return res.status(404).json("No URL found");
+    }
+  } catch (error) {
     res.status(500).json("Server error");
   }
 });
